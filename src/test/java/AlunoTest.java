@@ -1,7 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
-import org.example.Aluno;
-
+import br.infnet.TP.Aluno;
 
 public class AlunoTest {
 

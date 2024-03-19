@@ -1,4 +1,4 @@
-package org.example;
+package br.infnet.TP;
 
 public class Aluno {
     private String nome;
