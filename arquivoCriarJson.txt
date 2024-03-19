@@ -1,0 +1,37 @@
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import com.google.gson.Gson;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            URL url = new URL("http://localhost:8080/escolas");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setDoOutput(true);
+
+            Escola escola = new Escola("Escola ABC", "Endereço ABC");
+            Gson gson = new Gson();
+            String jsonInputString = gson.toJson(escola);
+
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+
+            int responseCode = conn.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_CREATED) {
+                System.out.println("Escola criada com sucesso.");
+            } else {
+                System.out.println("Erro ao criar escola. Código de resposta: " + responseCode);
+            }
+
+            conn.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
