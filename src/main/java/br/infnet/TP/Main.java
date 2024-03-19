@@ -1,13 +1,13 @@
 package br.infnet.TP;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+// import org.springframework.boot.SpringApplication;
+//import org.springframework.boot.autoconfigure.SpringBootApplication;
+// import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.PathVariable;
+// import org.springframework.web.bind.annotation.RestController;
+// import org.springframework.web.client.RestTemplate;
 
-@RestController
-@SpringBootApplication
+// @RestController
+// @SpringBootApplication
 public class Main {
     public static void main(String[] args) {
         Aluno aluno1 = new Aluno("Marcus", 19, "Engenharia de Software", 8.5);
@@ -20,13 +20,13 @@ public class Main {
         System.out.println("Média de Notas: " + aluno1.getMediaNotas());
         System.out.println("Status: " + aluno1.getStatus());
 
-        SpringApplication.run(Main.class, args);
+        // SpringApplication.run(Main.class, args);
     }
 
-    @GetMapping("/endereco/{cep}")
+    /* @GetMapping("/endereco/{cep}")
     public ViaCEPResponse obterEndereco(@PathVariable String cep) {
         String url = "https://viacep.com.br/ws/" + cep + "/json/";
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject(url, ViaCEPResponse.class);
-    }
+    } */
 }
