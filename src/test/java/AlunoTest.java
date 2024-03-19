@@ -28,7 +28,6 @@ public class AlunoTest {
         aluno.setNome("Carlos Silva");
         assertEquals("Carlos Silva", aluno.getNome());
     }
-
     @Test
     public void testSetMediaNotas() {
         Aluno aluno = new Aluno("Fernanda", 17, "Química", 6.8);
